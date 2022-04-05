@@ -17,13 +17,14 @@
 ***Ajax usage :*** <br>
     I use ajax for some feature, hence make sure to get node_module package in the main folder and in the java script folder (final_project/static/style/js/node_modules)
 
-***Model Folder :*** <br>
+***Model :*** <br>
     Don't forget to create a model directory or folder in final_project/static/file/model.
     Our model later will be saved in that directory.
 
 ## DISCLAIMER 
 This website developed by author as a final project of her last year in University. <br>
-This website made and design with love  using template provided freely (open source) from StartBootstap (https://startbootstrap.com/). Our Machine build using FastText Classifier on the top of the Flask Python framework corporate with Jinja extensible templating engine. <br>
+This website made and design with love  using template provided freely (open source) from StartBootstap (https://startbootstrap.com/). <br>
+Our Machine build using FastText Classifier on the top of the Flask Python framework corporate with Jinja extensible templating engine. <br>
 Get to know more about FastText (https://fasttext.cc/) <br>
 Get to know more about Flask (https://flask.palletsprojects.com/en/2.1.x/) <br>
 Every element that I do not create myself I take from open source and have obtained permission to use and develop it without violating the use restrictions of the original owner.
