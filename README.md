@@ -10,7 +10,7 @@
 - Flask
 - Fasttext
 - NLTK
-- Sastrawi
+- Sastrawi <br>
 *for python library you can use pip command to install the package :* 
 `pip install <package/library_name>`
 
