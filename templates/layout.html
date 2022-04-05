@@ -1,0 +1,61 @@
+{% extends "bootstrap4_base.html" %}
+{% block title %}Sentimen Analysis{% endblock %}
+
+
+{% block navbar %}
+<!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#page-top"><img src="../static/style/img/logo.png" alt="..." /></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars ms-1"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#road">Road Map</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#author">Author</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#disclaimer">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <header class="masthead">
+        <div class="masthead-subheading">Welcome To Our Lab!</div>
+        <div class="container">
+            <div class="masthead-heading text-uppercase"> Use our Machine for Classifying</div>
+            <br><br><br>
+            <a class="btn btn-primary btn-xl text-uppercase" href="#services">Hands On</a>
+            <br><br>
+        </div>
+    </header>
+{% endblock navbar %}
+
+{% block content %}
+
+    {% block index_body %}
+    {% endblock index_body %}
+
+{% endblock content %}
+
+{% block footer %}
+  <!-- Footer-->
+  <footer class="footer py-4 bg-dark">
+      <div class="container">
+          <div class="row align-items-center">
+              <div class="col-lg-4 text-lg-start text-light">Copyright &copy; University of Sumatera Utara 2022</div>
+              <div class="col-lg-4 my-3 my-lg-0">
+                <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/niahizkia/"><i class="fab fa-instagram"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/nia-hizkia-pangaribuan/"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+              <div class="col-lg-4 text-lg-end">
+                  <a class="link-light text-decoration-none me-3" href="#!">Privacy Policy</a>
+                  <a class="link-light text-decoration-none" href="#!">Terms of Use</a>
+              </div>
+          </div>
+      </div>
+  </footer>
+{% endblock footer %}

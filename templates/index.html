@@ -1,0 +1,310 @@
+{% extends "layout.html" %}
+{% block index_body %}
+
+
+    <!-- Services-->
+    <section class="page-section" id="services">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Services</h2>
+                <h3 class="section-subheading text-muted">3 steps to Classify your dataset.</h3>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa-solid fa-hand-sparkles fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Preprocessing</h4>
+                    <form id="formPreprocess" enctype="multipart/form-data" action="">
+                        <input class="form-control" type="file" name="dataset" id="dataset" required"><br>
+                        <a href="#result"><button type="submit" id="btnPreprocess" class="btn btn-primary"> Clean Now </button></a>
+                        <button type="button" class="bt bt-secondary mr-4 d-none" id="btnPrepReset">Reset</button>
+                    </form>
+                    <div id="emptyPreprocess" class="emptyPreprocess" >
+                      <div id="spinnerPrep" class="text-center d-none">
+                        <div class="lds-ellipsis">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <div class="small py-4">
+                          Preprocesing in process ...
+                        </div>
+                      </div>
+                    </div>
+                    <div id="resPrep" class="d-none">
+                    <div class="row hasil-presprocessing py-3">
+                        <p>Preprocesing succeed</p>
+                        <span id=resultPreprocess>?</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa-solid fa-brain-circuit fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Training</h4>
+                    <form id="formTraining" enctype="multipart/form-data" action="">
+                        <input class="form-control" type="file" name="dataTrain" id="dataTrain" required"><br>
+                        <button type="submit" id="btnTrain" class="btn btn-primary"> Train Now</button>
+                        <button type="button" class="bt bt-secondary mr-4 d-none" id="btnTrainReset">Reset</button>
+                    </form>
+                    <div id="emptyTrain" class="emptyTrain" >
+                      <div id="spinnerTrain" class="text-center d-none">
+                        <div class="lds-ellipsis">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <div class="small py-4">
+                          Training in process ...
+                        </div>
+                      </div>
+                    </div>
+                    <div id="resTrain" class="d-none">
+                    <div class="row hasil-training py-3">
+                        <p>Training succeed</p>
+                        <span id=resultTrain>?</span>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <span class="fa-stack fa-4x">  <!--This is  yellow ikon section-->
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fa-solid fa-head-side-brain fa-stack-1x fa-inverse"></i>
+                    </span>
+                    <h4 class="my-3">Testing</h4>
+                    <form id="formTesting" enctype="multipart/form-data" action="">
+                        <input class="form-control" type="file" name="dataTest" id="dataTest" required"><br>
+                        <button type="submit" id="btnTest" class="btn btn-primary"> Test Now</button>
+                        <button type="button" class="bt bt-secondary mr-4 d-none" id="btnTestReset">Reset</button>
+                    </form>
+                    <div id="emptyTest" class="emptyTest" >
+                      <div id="spinnerTest" class="text-center d-none">
+                        <div class="lds-ellipsis">
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                          <div></div>
+                        </div>
+                        <div class="small py-4">
+                          Testing in process ...
+                        </div>
+                      </div>
+                    </div>
+                    <div id="resTest" class="d-none">
+                    <div class="row hasil-testing py-3">
+                        <p>Hasil Testing</p>
+                        <span id=resultTest>?</span>
+                    </div>
+                    <button type="submit" id="btnResTest" class="btn btn-primary"> Show Result</button>
+                    </div>
+                </div>
+            </div>
+        </div> <br>
+        <div id="resPreprocess" class="d-none hasil-preprocess"> <br>
+          <h4 class="my-3 text-center"> Result of Preprocessing </h4> <br>
+          <div class="table">
+          <table id="tbPreprocess" class="table table-striped table-sm" style="width: 80%;">
+            <thead>
+              <tr>
+                <th>review</th>
+              </tr>
+            </thead>
+          </table>
+          </div>
+        </div>
+        <div id="resTestingReport" class="d-none hasil-test"> <br>
+          <h4 class="my-3 text-center"> Result of Testing </h4> <br>
+          <div class="table">
+            <table id="tbTest" class="table table-striped table-sm" style="width: 85%;">
+              <thead>
+                <tr>
+                  <th>Review</th>
+                  <th>Prediction</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+    </section>
+
+<!-- Sentence Prediction -->
+    <section class="page-section bg-light">
+      <div class="text-center">
+          <h2 class="section-heading">Predict a Sentence</h2>
+          <h3 class="section-subheading text-muted">Note : Clean sentence with no punctuation, no affixes and non-slang words will be easier to classify.</h3>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+          <span class="fa-stack fa-4x">  <!--This is  yellow ikon section-->
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa-solid fa-square-quote fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="my-3">Input Your Sentence</h4>
+          <form id="formPredict" enctype="multipart/form-data" action="">
+              <input class="form-control" type="text" name="dataPredictText" id="dataPredictText" required"><br>
+              <button type="submit" id="btnPredict" class="btn btn-primary"> Predict Now</button>
+              <button type="button" class="bt bt-secondary mr-4 d-none" id="btnPredictReset">Reset</button>
+          </form>
+          <div id="spinnerPredict" class="text-center d-none">
+            <div class="lds-ellipsis">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div class="small py-4">
+              Testing in process ...
+            </div>
+          </div>
+          <div id="resPredict" class="d-none">
+          <div class="row hasil-Predict py-3">
+              <h4 class="text-muted">Prediction Result :</h4>
+              <p class="text-muted">Label :</p>
+              <span id=prediction>?</span>
+              <p class="text-muted">Score :</p>
+              <span id=accuracy>?</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Road Map-->
+    <section class="page-section" id="road">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Road Map</h2>
+                <h3 class="section-subheading text-muted">Proses klasifikasi sentiment.</h3>
+            </div>
+            <ul class="timeline">
+            <li class="timeline-inverted">
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="../static/style/img/roadmap/data.jpg" alt="..." /></div>
+                <div class="timeline-panel">
+                    <div class="timeline-heading">
+                        <h4 class="text-uppercase">Data</h4>
+                        <h4 class="subheading text-muted">To obtaining data</h4>
+                    </div>
+                    <div class="timeline-body"><p class="text-muted">A major part of machine learning or deep learning is Data!
+                      In fact, it's so important that the accuracy we will get depens on our data, the better our data then
+                      the better result we will get. Data can be obtained from open sources or we can scrape from certain websites or from other databases.</p></div>
+                </div>
+            </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="../static/style/img/roadmap/prepocessing.jpeg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="text-uppercase">Preprocessing</h4>
+                            <h5 class="subheading text-muted">To Cleaning the data</h5>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">Usually the dataset that we have obtained needs to be cleaned. Especially when dataset
+                           is raw and unstructural. In our case the dataset is typical text data such words. When we are going to classify sentiment in the text type of data,
+                          there are many steps we need to do with the dataset before we feed it into our machine. Since the words in the dataset does not always correct in spelling we need to Normalize it. And also we need to remove all the stopwords and punctuantions from our dataset.
+                          </p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="../static/style/img/roadmap/training.jpg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="text-uppercase">Training</h4>
+                            <h4 class="subheading text-muted">To train the machine</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">Then, we are ready to feed the data to our machine. Amount of data we are going to feed into Training process usually much larger than data for Testing.
+                          We will use 80:20 to divide our dataset into Data Training and Data Testing. In our machine we use Deep Learning approach. Using FastText Classifier our machine will learn from our data and will generate a model as a result.</p></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" src="../static/style/img/roadmap/testing.jpeg" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="text-uppercase">Testing</h4>
+                            <h4 class="subheading text-muted">Evaluate the model</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-muted">This time we will test our model. In this part we will see how good is our model to predict the sentiment of our data Testing. This process will return the accuracy of the prediction our machine have made.</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+
+                            <br><h2>
+                              <br>
+                            That's
+                            it!
+                            <br>
+                        </h2>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <!-- Author -->
+    <section class="page-section bg-light" id="author">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Author </h2>
+                <h3 class="section-subheading text-muted">This website developed by author as a final project of her last year in University.</h3>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="team-member">
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" src="../static/style/img/author/2.jpg" alt="..." />
+                        <h4>Nia Hizkia Pangaribuan</h4>
+                        <p class="text-muted">161401067 - S1 Ilmu Komputer</p>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.instagram.com/niahizkia/"><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/nia-hizkia-pangaribuan/"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="team-member">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Last year Computer Science student at University of Sumatera Utara, Faculty of Computer Science and Infomation Technology.</p></div>
+            </div>
+        </div>
+    </section>
+    <!-- Disclaimer -->
+    <section class="page-section" id="disclaimer">
+        <div class="container">
+            <div class="text-center">
+              <h1>Discraimer</h1>
+              <p class="large text-muted"> This website made and designed with love using template provided freely (open source) from (https://startbootstrap.com/). <br>
+              Our Machine build using FastText Classifier on the top of the Flask Python framework corporate with Jinja extensible templating engine. <br>
+              Every element that I do not create myself I take from open source and have obtained permission to use and develop it without violating the use restrictions of the original owner.</p>
+              <br>
+            </div>
+        </div>
+    </section>
+    <!-- Thanks To -->
+    <section class="page-section bg-light" id="thanks">
+        <div class="container">
+            <div class="text-center"><h1>Thanks to</h1></div>
+            <ul>
+              <li> Facebook AI Research
+                <p class="text-muted"> The owner of FastText Classifier for providing to everybody in needs this amazing classifier and make it open source</p> </li>
+              <li> Sekolah Koding
+                <p class="text-muted"> Has been the place for the author to learn in the past 2 years especially in learning Python and Flask as the framework. </p> </li>
+              <li>Freecodecamp</li>
+                <p class="text-muted"> The website has become a fun place for author to learn what everybody knows as a hard thing to dig and learn a.k.a Machine Learning, Artificial Neural Network, and Deep Learning. </p>
+              <li>Every Programmer/Researcher on the internet</li>
+                <p class="text-muted"> Any kind hearted Programmer/Researcher who has the intention to help other programmers to solve their problems by uploading their ideas and solutions all over the internet, especially on
+                  Stack Overflow which is the site I have been visited the most. And for the Researchers who have uploaded their research and ideas in amazing journal all over the internet and are happy to make it open source.</p>
+            </ul>
+        </div>
+    </section>
+
+
+{% endblock index_body %}
