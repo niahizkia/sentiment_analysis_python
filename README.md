@@ -11,7 +11,7 @@
 - Fasttext
 - NLTK
 - Sastrawi <br>
-*for python library you can use pip command to install the package :* 
+*for python library you can use pip command to install the package :* <br>
 `pip install <package/library_name>`
 
 ***Ajax usage :*** <br>
@@ -20,7 +20,7 @@
 
 
 ## DISCLAIMER 
-This website developed by author as a final project of her last year in University.
+This website developed by author as a final project of her last year in University. <br>
 This website made and design with love  using template provided freely (open source) from StartBootstap (https://startbootstrap.com/). Our Machine build using FastText Classifier on the top of the Flask Python framework corporate with Jinja extensible templating engine. <br>
 Get to know more about FastText (https://fasttext.cc/) <br>
 Get to know more about Flask (https://flask.palletsprojects.com/en/2.1.x/) <br>
