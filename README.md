@@ -3,7 +3,7 @@
 ### This is how you will run the app :
 1. Make sure you are in the right environment if not enter the env where the library required installed (check library you will need in the next section below)
 2. Enter the right path/directory of this project
-3. Run this command [python app.py] 
+3. Run `app.py` 
 
 ### Make sure you've already get these library below installed in your env :
     - Pandas
