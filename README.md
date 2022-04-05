@@ -16,7 +16,6 @@
 
 ***Ajax usage :*** <br>
     I use ajax for some feature, hence make sure to get node_module package in the main folder and in the java script folder (final_project/static/style/js/node_modules)
-    or you can download from this ()
 
 
 ## DISCLAIMER 
