@@ -23,7 +23,7 @@
 
 ## DISCLAIMER 
 This website developed by author as a final project of her last year in University. <br>
-This website made and design with love  using template provided freely (open source) from StartBootstap (https://startbootstrap.com/). <br>
+This website made and design with love  using template provided freely (open source) from StartBootstap. <br>
 Our Machine build using FastText Classifier on the top of the Flask Python framework corporate with Jinja extensible templating engine. <br>
 
 ### References
