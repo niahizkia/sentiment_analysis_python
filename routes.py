@@ -123,7 +123,7 @@ def testing():
         filename    = 'tested_'+filename
         sv.LoadData.saveData(TESTLOC, test_df, filename)
         predictions = sv.Fasttext.test(loc_test, model)
-        hasil       = {"result": {predictions}, "file"  : f"{filename}"}
+        hasil       = {"result": {predictions[1]}, "file"  : f"{filename}", "number" : {predictions[0]}}
         res         = json.dumps(hasil, default=set_default), 200
         return (res)
     return render_template('index.html')

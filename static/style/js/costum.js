@@ -230,7 +230,8 @@ $(formTesting).submit(function (e) {
       hide(spinnerTest);
       hide(emptyTest);
       show(resTest);
-      $('#resultTest').text(obj["result"]);
+      $('#resultTestAcc').text(obj["result"]);
+      $('#resultTestNum').text(obj["number"]);
       btnResTest.onclick = function () {
         var fileobj = JSON.parse(data);
         var fileloc = fileobj.file;
