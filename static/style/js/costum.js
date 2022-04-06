@@ -47,6 +47,9 @@ var emptyTest       = ID("emptyTest");
 
 var tbTest          = ID("tbTest");
 
+var markNegative    = ID("negative");
+var markNeutral    = ID("neutral");
+var markPositive    = ID("positive")
 
 //------------------------------------------------------------------------------------
 //-----------------PREPROCESSING------------------------------------------------------
@@ -108,6 +111,9 @@ $(formPredict).submit(function (e) {
   e.preventDefault();
   hide(resPredict);
   hide(btnPredict);
+  hide(markNegative);
+  hide(markNeutral);
+  hide(markPositive);
 
   show(btnPredictReset);
   show(spinnerPredict);
@@ -126,7 +132,14 @@ $(formPredict).submit(function (e) {
       hide(spinnerPredict);
       show(resPredict);
 
-      $('#prediction').text(obj["prediction"]);
+      if (obj["prediction"] == "__label__1"){
+        show(markNegative);
+      } else if (obj["prediction"] == "__label__3"){
+        show(markNeutral);
+      } else {
+        show(markPositive);
+      }
+
       $('#accuracy').text(obj["accuracy"]);
     },
     error: function (xhr, ajaxOption, thrownError) {

@@ -73,7 +73,7 @@ class Fasttext:
         model = fasttext.train_supervised(input=loc, lr=0.1, wordNgrams=3, epoch=5)
         filename = 'static/file/model/finalized_model.bin'
         model.save_model(filename)
-        return "model has been saved"
+        return "Model has been saved"
 
     def predict(row):
         model = Fasttext.loadmodel('finalized_model.bin')

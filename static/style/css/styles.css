@@ -11801,7 +11801,7 @@ section#contact form#contactForm :-ms-input-placeholder {
 }
 
 
-//?Spinner
+/* Spinner */
 .lds-ring {
   display: inline-block;
   position: relative;
@@ -11816,10 +11816,10 @@ section#contact form#contactForm :-ms-input-placeholder {
   width: 70px;
   height: 70px;
   margin: 8px;
-  border: 8px solid $b;
+  border: 8px solid;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: $b transparent transparent transparent;
+  border-color: transparent transparent transparent;
 }
 
 .lds-ring div:nth-child(1) {
@@ -11852,4 +11852,16 @@ section#contact form#contactForm :-ms-input-placeholder {
 .resTesting {
   margin-left: 35px;
   text-align: left;
+}
+
+#negative{
+  background-color: red;
+}
+
+#neutral{
+  background-color: var(--bs-yellow);
+}
+
+#positive{
+  background-color: green;
 }
