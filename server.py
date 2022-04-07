@@ -54,14 +54,14 @@ class Preprocessing:
                        'v','w','x','y','z','in','btw','sry','ac','bd','cc','be','yuk','we','re','yuk','yuuukk','oi','eh',
                        'lapef','weh','wih','wii','wkakwkakwkk','wkawkawk','ya','yuks','ywda','yukk','hayu','\n','hehehe'])
 
-        txt_stopword = pd.read_csv("/home/niahizkia/projects/SSA/static/file/stopwords.csv", names= ["stopwords"], header = None)
+        txt_stopword = pd.read_csv("/home/niahizkia/projects/final_project/static/file/stopwords_id.csv", names= ["stopwords"], header = None)
         list_stopwords.extend(txt_stopword["stopwords"][0].split(' '))
         # convert list to dictionary
         list_stopwords = set(list_stopwords)
         return [word for word in words if word not in list_stopwords]
 
     def normalisasi(document):
-        normalized_word = pd.read_excel("/home/niahizkia/projects/SSA/static/file/normalisasi.xlsx")
+        normalized_word = pd.read_excel("/home/niahizkia/projects/final_project/static/file/normalisasi.xlsx")
         normalized_word_dict = {}
         for index, row in normalized_word.iterrows():   #.iterrows() method generates an iterator object of the DataFrame, to iterate each row in the DataFrame
             if row[0] not in normalized_word_dict:
