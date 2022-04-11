@@ -3,6 +3,7 @@ from nltk.corpus import stopwords
 import re
 import string
 from nltk.tokenize import word_tokenize
+from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import nltk
 import fasttext
 nltk.download('stopwords')
@@ -67,6 +68,19 @@ class Preprocessing:
             if row[0] not in normalized_word_dict:
                 normalized_word_dict[row[0]] = row[1]
         return [normalized_word_dict[term] if term in normalized_word_dict else term for term in document]
+
+    def stemming(document):
+        factory = StemmerFactory()
+        stemmer = factory.create_stemmer()
+        term_dict   = {}
+        for term in document:
+            if term not in term_dict:
+                term_dict[term] = ' '
+    
+        for term in term_dict:
+            term_dict[term] = stemmer.stem(term)
+            print(term,":" ,term_dict[term])
+        return [term_dict[term] for term in document]
 
 class Fasttext:
     def train(loc):

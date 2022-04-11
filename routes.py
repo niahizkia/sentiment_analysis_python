@@ -1,7 +1,6 @@
 from flask import render_template, request, json, jsonify
 from app import app
 from werkzeug.utils import secure_filename
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import os
 import csv
 import server as sv
@@ -39,40 +38,11 @@ def preprosessing():
         review  = sv.LoadData.readData(loc)
 
         review['clean']      = review['reviews'].apply(sv.Preprocessing.cleaning)
-        print("----------------------------------------")
-        print("-------------CLEANING DONE--------------")
-        review['normalized'] = review['clean'].apply(sv.Preprocessing.normalisasi)
-        print("----------------------------------------")
-        print("-----------NORMALIZATION DONE-----------")
-        review['swremoved']  = review['normalized'].apply(sv.Preprocessing.stopwords_removal)
-        print("----------------------------------------")
-        print("---------STOPWORDS REMOVAL DONE---------")
-
-        factory     = StemmerFactory()
-        stemmer     = factory.create_stemmer()
-
-        term_dict   = {}
-
-        for document in review['swremoved']:
-            for term in document:
-                if term not in term_dict:
-                    term_dict[term] = ' '
-       
-        for term in term_dict:
-            term_dict[term] = stemmer.stem(term)
-            print(term,":" ,term_dict[term])
-
-        print(term_dict)
-        print("----------------------------------------")
-        print("--------------STEMMING DONE-------------")
-        print("----------------------------------------")
-
-        def get_stemmed_term(document):
-                return [term_dict[term] for term in document]
-
-        review['stemmed'] = review['swremoved'].apply(get_stemmed_term)
-        review['wrapped'] = review['stemmed'].apply(sv.Preprocessing.gabung)
-        review['review']  = review['label'] + ' ' + review['wrapped']
+        review['normalize']  = review['clean'].apply(sv.Preprocessing.normalisasi)
+        review['swremoved']  = review['normalize'].apply(sv.Preprocessing.stopwords_removal)
+        review['stemmed']    = review['swremoved'].apply(sv.Preprocessing.stemming)
+        review['wrapped']    = review['stemmed'].apply(sv.Preprocessing.gabung)
+        review['review']     = review['label'] + ' ' + review['wrapped']
 
         filename    = 'preprocessed_'+filename
         prepLoc     = sv.LoadData.saveData(PREPOCESSINGLOC, review['review'], filename)
