@@ -244,3 +244,5 @@ dist
 
 # TernJS port file
 .tern-port
+
+*.html
