@@ -11,6 +11,8 @@ TESTLOC         = 'static/file/testing/'
 
 ALLOWED_EXTENSION = {'csv'}
 
+# ini percobaan git
+
 def set_default(obj):
     if isinstance(obj, set):
         return list(obj)        # turn object containing set to list so JSON can handle it
