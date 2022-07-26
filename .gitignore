@@ -135,6 +135,7 @@ dmypy.json
 #model exsitend
 *.bin
 model/
+style/
 
 
 

@@ -18,8 +18,12 @@
     I use ajax for some feature, hence make sure to get node_module package in the main folder and in the java script folder (final_project/static/style/js/node_modules)
 
 ***Model :*** <br>
-    Don't forget to create a model directory or folder in final_project/static/file/model.
+    Don't forget to create a model directory or folder in final_project/static/file/
     Our model later will be saved in that directory.
+
+***Style Sheet :*** <br>
+    Create a style folder in final_project/static/
+    Download and add this file here (https://drive.google.com/drive/folders/1d6pTsn8TmEh2KuvoaDIBwwMMEKnE7GjV?usp=sharing) to the style folder.
 
 ## DISCLAIMER 
 This website developed by author as a final project of her last year in University. <br>
