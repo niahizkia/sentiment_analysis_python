@@ -39,14 +39,14 @@ def preprosessing():
         loc     = os.path.join(DATASETLOC, filename)
         review  = sv.LoadData.readData(loc)
 
-        review['clean']      = review['reviews'].apply(sv.Preprocessing.cleaning)
-        review['normalize']  = review['clean'].apply(sv.Preprocessing.normalisasi)
-        review['swremoved']  = review['normalize'].apply(sv.Preprocessing.stopwords_removal)
-        review['stemmed']    = review['swremoved'].apply(sv.Preprocessing.stemming)
-        review['wrapped']    = review['stemmed'].apply(sv.Preprocessing.gabung)
+        review['clean']      = review['review'].apply(sv.Preprocessing.cleaning)
+        # review['normalize']  = review['clean'].apply(sv.Preprocessing.normalisasi)
+        # review['swremoved']  = review['clean'].apply(sv.Preprocessing.stopwords_removal)
+        # review['stemmed']    = review['swremoved'].apply(sv.Preprocessing.stemming)
+        review['wrapped']    = review['clean'].apply(sv.Preprocessing.gabung)
         review['review']     = review['label'] + ' ' + review['wrapped']
 
-        filename    = 'preprocessed_'+filename
+        filename    = 'cleaned_'+filename
         prepLoc     = sv.LoadData.saveData(PREPOCESSINGLOC, review['review'], filename)
         hasil       = {"message": f"{file.filename} has been cleaned..", "hPrep": {prepLoc}}
         res         = json.dumps(hasil, default=set_default), 200
