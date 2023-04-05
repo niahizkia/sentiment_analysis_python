@@ -7,6 +7,7 @@ from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 import nltk
 import fasttext
 nltk.download('stopwords')
+nltk.download('punkt')
 
 class LoadData:
     def readData(loc):
